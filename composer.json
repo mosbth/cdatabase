@@ -1,0 +1,22 @@
+{
+    "name": "mos/database",    
+    "type": "library",
+    "description": "PHP classes for database handling upon PDO",
+    "keywords": ["mosule", "framework", "mvc", "micro", "education"],
+    "homepage": "http://dbwebb.se",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mikael Roos",
+            "email": "me@mikaelroos.se",
+            "homepage": "http://mikaelroos.se",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4"
+    },
+    "require-dev": {
+        "satooshi/php-coveralls": "dev-master"
+    }
+}
