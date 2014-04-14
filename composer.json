@@ -2,7 +2,7 @@
     "name": "mos/database",    
     "type": "library",
     "description": "PHP classes for database handling upon PDO",
-    "keywords": ["mosule", "framework", "mvc", "micro", "education"],
+    "keywords": ["module", "framework", "mvc", "micro", "education"],
     "homepage": "http://dbwebb.se",
     "license": "MIT",
     "authors": [

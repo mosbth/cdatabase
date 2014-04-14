@@ -56,6 +56,18 @@ echo "<pre>" . $db->getSQL() . "</pre>";
 
 
 //
+// Insert a single row into table using one array (rest will be sent as parameters)
+//
+$db->insert(
+    'test',
+    ['id', 'text', 'text2']
+);
+
+echo "<pre>" . $db->getSQL() . "</pre>";
+
+
+
+//
 // Update a single row using key => value
 //
 $db->update(
@@ -80,6 +92,18 @@ $db->update(
     ['age', 'text', 'text1'],
     [22, "Mumintrollet", "Mumindalen"],
     "id = 2"
+);
+
+echo "<pre>" . $db->getSQL() . "</pre>";
+
+
+
+//
+// Update a single row into table using one array (rest will be sent as parameters)
+//
+$db->update(
+    'test',
+    ['id', 'text', 'text2']
 );
 
 echo "<pre>" . $db->getSQL() . "</pre>";

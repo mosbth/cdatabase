@@ -44,7 +44,7 @@ trait TSQLQueryBuilderBasic
      *
      * @return string as SQL query
      */
-    public function build()
+    protected function build()
     {
         $sql = "SELECT\n\t"
             . $this->columns . "\n"
@@ -83,6 +83,23 @@ trait TSQLQueryBuilderBasic
     public function setTablePrefix($prefix)
     {
         $this->prefix = $prefix;
+    }
+
+
+
+    /**
+     * Utilitie to check if array is associative array.
+     *
+     * http://stackoverflow.com/questions/173400/php-arrays-a-good-way-to-check-if-an-array-is-associative-or-sequential/4254008#4254008
+     *
+     * @param array $array input array to check.
+     *
+     * @return boolean true if array is associative array with at least one key, else false.
+     *
+     */
+    private function isAssoc($array)
+    {
+        return (bool) count(array_filter(array_keys($array), 'is_string'));
     }
 
 
@@ -159,6 +176,39 @@ trait TSQLQueryBuilderBasic
 
 
     /**
+     * Create a proper column value arrays from incoming $columns and $values.
+     *
+     * @param array  $columns 
+     * @param array  $values
+     *
+     * @return list($columns, $values)
+     */
+    public function mapColumnsWithValues($columns, $values)
+    {
+        // If $values is null, then use $columns to build it up
+        if (is_null($values)) {
+
+            if ($this->isAssoc($columns)) {
+    
+                // Incoming is associative array, split it up in two
+                $values = array_values($columns);
+                $columns = array_keys($columns);
+    
+            } else {
+
+                // Create an array of '?' to match number of columns
+                for ($i = 0; $i < count($columns); $i++) {
+                    $values[] = '?';
+                }
+            }
+        }
+
+        return [$columns, $values];
+    }
+
+
+
+    /**
      * Build a insert-query.
      *
      * @param string $name    the table name.
@@ -169,11 +219,7 @@ trait TSQLQueryBuilderBasic
      */
     public function insert($table, $columns, $values = null)
     {
-        // If no $values, expect a key => val array of $columns
-        if (is_null($values)) {
-            $values = array_values($columns);
-            $columns = array_keys($columns);
-        }
+        list($columns, $values) = $this->mapColumnsWithValues($columns, $values);
 
         if (count($columns) != count($values)) {
             throw new \Exception("Columns does not match values, not equal items.");
@@ -214,7 +260,7 @@ trait TSQLQueryBuilderBasic
 
 
     /**
-     * Build a update-query.
+     * Build an update-query.
      *
      * @param string $name    the table name.
      * @param array  $columns to update or key=>value with columns and values.
@@ -231,11 +277,7 @@ trait TSQLQueryBuilderBasic
             $values = null;
         }
 
-        // If no $values, expect a key => val array of $columns
-        if (is_null($values)) {
-            $values = array_values($columns);
-            $columns = array_keys($columns);
-        }
+        list($columns, $values) = $this->mapColumnsWithValues($columns, $values);
 
         if (count($columns) != count($values)) {
             throw new \Exception("Columns does not match values, not equal items.");
@@ -299,7 +341,7 @@ trait TSQLQueryBuilderBasic
      *
      * @return void
      */
-    public function clear()
+    protected function clear()
     {
         $this->sql      = null;
         $this->columns  = null;
@@ -371,7 +413,23 @@ trait TSQLQueryBuilderBasic
      */
     public function where($condition)
     {
-        $this->where = "WHERE " . $condition;
+        $this->where = "WHERE \n\t(" . $condition . ")";
+
+        return $this;
+    }
+
+
+
+    /**
+     * Build the where part with conditions.
+     *
+     * @param string $condition for building the where part of the query.
+     *
+     * @return $this
+     */
+    public function andWhere($condition)
+    {
+        $this->where .= "\n\tAND (" . $condition . ")";
 
         return $this;
     }

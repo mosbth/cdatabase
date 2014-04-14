@@ -69,12 +69,11 @@ $id2 = $db->lastInsertId();
 
 
 //
-// Insert a single row into table using two arrays
+// Insert a single row into table using single array
 //
 $db->insert(
     'test',
-    ['age', 'text'],
-    ['?', '?']
+    ['age', 'text']
 );
 
 $db->execute($rows[0]);
@@ -128,12 +127,11 @@ echo "<pre>" . print_r($res, 1) . "</pre>";
 
 
 //
-// Update a single row using two arrays
+// Update a single row using one arrays
 //
 $db->update(
     'test',
     ['age', 'text'],
-    ['?', '?'],
     "id = ?"
 );
 

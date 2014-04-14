@@ -55,7 +55,7 @@ class CDatabaseBasic
             'driver_options'  => null,
             'table_prefix'    => null,
             'verbose'         => null,
-            'fetch_style'     => \PDO::FETCH_OBJ,
+            'fetch_mode'      => \PDO::FETCH_OBJ,
             'session_key'     => 'CDatabase',
         ];
         $this->options = array_merge($default, $options);
@@ -90,7 +90,7 @@ class CDatabaseBasic
                 $this->options['password'],
                 $this->options['driver_options']
             );
-            $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_style']);
+            $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_mode']);
 
         } else {
             throw new \Exception("You can not connect, missing dsn.");
@@ -111,6 +111,38 @@ class CDatabaseBasic
     public function setVerbose($on = true)
     {
         $this->options['verbose'] = $on;
+    }
+
+
+
+    /**
+     * Set fetch mode. (OBSOLETE?)
+     *
+     * @param int $fetchmode as \PDO::FETCH_OBJ, \PDO::FETCH_CLASS, \PDO::FETCH_INTO, etc.
+     *
+     * @return void
+     */
+    public function setFetchMode($fetchmode = null)
+    {
+        $fetchmode = isset($fetchmode)
+            ? $fetchmode
+            : $this->options['fetch_mode'];
+
+        $this->stmt->setFetchMode($fetchmode);
+    }
+
+
+
+    /**
+     * Set fetchmode to insert Fetch one resultset from previous select statement as an object.
+     * 
+     * @param string $class to insert values into.
+     *
+     * @return boolean Returns TRUE on success or FALSE on failure.
+     */
+    public function setFetchModeClass($class)
+    {
+        return $this->stmt->setFetchMode(\PDO::FETCH_CLASS, $class);
     }
 
 
@@ -244,19 +276,17 @@ class CDatabaseBasic
      * @param string  $query      the SQL query with ?.
      * @param array   $params     array which contains the argument to replace ?.
      * @param boolean $debug      defaults to false, set to true to print out the sql query before executing it.
-     * @param int     $fetchStyle can be changed by sending in arguments.
      *
      * @return array with resultset.
      */
     public function executeFetchAll(
         $query = null,
         $params = [],
-        $debug = false,
-        $fetchStyle = null
+        $debug = false
     ) {
 
         $this->execute($query, $params, $debug);
-        return $this->fetchAll($fetchStyle);
+        return $this->fetchAll();
     }
 
 
@@ -264,13 +294,11 @@ class CDatabaseBasic
     /**
      * Fetch all resultset from previous select statement.
      * 
-     * @param int $fetchStyle can be changed by sending in arguments.
-     *
      * @return array with resultset.
      */
-    public function fetchAll($fetchStyle = null)
+    public function fetchAll()
     {
-        return $this->stmt->fetchAll($fetchStyle);
+        return $this->stmt->fetchAll();
     }
 
 
@@ -278,13 +306,40 @@ class CDatabaseBasic
     /**
      * Fetch one resultset from previous select statement.
      * 
-     * @param int $fetchStyle can be changed by sending in arguments.
+     * @return array with resultset.
+     */
+    public function fetchOne()
+    {
+        return $this->stmt->fetch();
+    }
+
+
+
+    /**
+     * Fetch one resultset from previous select statement as an object.
+     * 
+     * @param object $class which type of object to instantiate.
      *
      * @return array with resultset.
      */
-    public function fetchOne($fetchStyle = null)
+    public function fetchObject($class)
     {
-        return $this->stmt->fetch($fetchStyle);
+        return $this->stmt->fetchObject($class);
+    }
+
+
+
+    /**
+     * Fetch one resultset from previous select statement as an object.
+     * 
+     * @param object $object to insert values into.
+     *
+     * @return array with resultset.
+     */
+    public function fetchInto($object)
+    {
+        $this->stmt->setFetchMode(\PDO::FETCH_INTO, $object);
+        return $this->stmt->fetch();
     }
 
 
