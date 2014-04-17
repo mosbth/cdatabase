@@ -26,6 +26,11 @@ History
 -----------------------------------
 
 
+v0.1.x (latest)
+
+* Adding debug mode to hide or display conneciton details when connect() fails.
+
+
 v0.1.0 (2014-04-17)
 
 * Using and modifying class `CDatabase` from Anax-oophp and merging with same class from Lydia.

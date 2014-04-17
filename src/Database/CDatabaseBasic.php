@@ -75,22 +75,34 @@ class CDatabaseBasic
     /**
      * Connect to the database.
      *
+     * @param boolean $debug default false, set to true to throw exception with full connection details 
+     * when connection fails.
+     *
      * @return void
      */
-    public function connect()
+    public function connect($debug = false)
     {
         if (isset($this->options['dsn'])) {
             if ($this->options['verbose']) {
                 echo "<p>Connecting to dsn:<br><code>" . $this->options['dsn'] . "</code>";
             }
 
-            $this->db = new \PDO(
-                $this->options['dsn'],
-                $this->options['username'],
-                $this->options['password'],
-                $this->options['driver_options']
-            );
-            $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_mode']);
+            try {
+                $this->db = new \PDO(
+                    $this->options['dsn'],
+                    $this->options['username'],
+                    $this->options['password'],
+                    $this->options['driver_options']
+                );
+                $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_mode']);
+            
+            } catch(Exception $e) {
+                // For debug purpose, shows all connection details
+                //throw $e;
+
+                // Hide connection details.
+                throw new \PDOException("Could not connect to database, hiding connection details. Connect using 'debug' to see the full exception message.");
+            }
 
         } else {
             throw new \Exception("You can not connect, missing dsn.");
