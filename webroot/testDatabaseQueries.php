@@ -4,6 +4,7 @@
 //
 $db->setOptions($options);
 $db->connect();
+//$db->connect('debug');
 
 
 //

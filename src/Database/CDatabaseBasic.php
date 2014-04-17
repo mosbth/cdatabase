@@ -54,9 +54,10 @@ class CDatabaseBasic
             'password'        => null,
             'driver_options'  => null,
             'table_prefix'    => null,
-            'verbose'         => null,
             'fetch_mode'      => \PDO::FETCH_OBJ,
             'session_key'     => 'CDatabase',
+            'verbose'         => null,
+            'debug_connect'   => false,
         ];
         $this->options = array_merge($default, $options);
 
@@ -96,12 +97,15 @@ class CDatabaseBasic
                 );
                 $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_mode']);
             
-            } catch(Exception $e) {
-                // For debug purpose, shows all connection details
-                //throw $e;
+            } catch(\Exception $e) {
 
-                // Hide connection details.
-                throw new \PDOException("Could not connect to database, hiding connection details. Connect using 'debug' to see the full exception message.");
+                if ($debug || $this->options['debug_connect']) {
+                    // For debug purpose, shows all connection details
+                    throw $e;
+                } else {
+                    // Hide connection details.
+                    throw new \PDOException("Could not connect to database, hiding connection details. Connect using 'debug' to see the full exception message.");
+                }
             }
 
         } else {
