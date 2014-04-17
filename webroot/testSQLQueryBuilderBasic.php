@@ -103,7 +103,8 @@ echo "<pre>" . $db->getSQL() . "</pre>";
 //
 $db->update(
     'test',
-    ['id', 'text', 'text2']
+    ['age', 'text', 'text1'],
+    "id = ?"
 );
 
 echo "<pre>" . $db->getSQL() . "</pre>";

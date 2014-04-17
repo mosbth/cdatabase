@@ -1,5 +1,5 @@
 {
-    "name": "mos/database",    
+    "name": "mos/cdatabase",    
     "type": "library",
     "description": "PHP classes for database handling upon PDO",
     "keywords": ["module", "framework", "mvc", "micro", "education"],
@@ -16,7 +16,7 @@
     "require": {
         "php": ">=5.4"
     },
-    "require-dev": {
-        "satooshi/php-coveralls": "dev-master"
+    "autoload": {
+        "psr-4": { "Mos\\": "src/" }
     }
 }
