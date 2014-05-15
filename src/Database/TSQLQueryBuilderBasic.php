@@ -20,6 +20,9 @@ trait TSQLQueryBuilderBasic
     private $from;      // From part
     private $where;     // Where part
     private $orderby;   // Order by part
+    private $limit;     // Limit by part
+    private $offset;    // Offset by part
+
 
 
 
@@ -52,6 +55,8 @@ trait TSQLQueryBuilderBasic
             . ($this->join    ? $this->join           : null)
             . ($this->where   ? $this->where . "\n"   : null)
             . ($this->orderby ? $this->orderby . "\n" : null)
+            . ($this->limit   ? $this->limit . "\n"   : null)
+            . ($this->offset  ? $this->offset . "\n"  : null)
             . ";";
 
         return $sql;
@@ -349,6 +354,8 @@ trait TSQLQueryBuilderBasic
         $this->join     = null;
         $this->where    = null;
         $this->orderby  = null;
+        $this->limit    = null;
+        $this->offset   = null;
     }
 
 
@@ -446,6 +453,34 @@ trait TSQLQueryBuilderBasic
     public function orderBy($condition)
     {
         $this->orderby = "ORDER BY " . $condition;
+
+        return $this;
+    }
+    
+     /**
+     * Build the LIMIT by part.
+     *
+     * @param string $condition for building the LIMIT part of the query.
+     *
+     * @return $this
+     */
+    public function limit($condition)
+    {
+        $this->limit = "LIMIT \n\t(" . intval($condition) . ")";
+
+        return $this;
+    }
+
+    /**
+     * Build the OFFSET by part.
+     *
+     * @param string $condition for building the OFFSET part of the query.
+     *
+     * @return $this
+     */
+    public function offset($condition)
+    {
+        $this->offset = "OFFSET \n\t(" . intval($condition) . ")";
 
         return $this;
     }

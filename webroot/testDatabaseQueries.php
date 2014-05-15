@@ -183,6 +183,33 @@ $res = $db->executeFetchAll();
 
 echo "<pre>" . print_r($res, 1) . "</pre>";
 
+//
+// Select and limit from database
+//
+
+echo "<h1> New Limit Test Case 1</h1>";
+
+$db->select("*")->from('test')->limit('1');
+
+$res = $db->executeFetchAll();
+
+echo "<pre>" . print_r($res, 1) . "</pre>";
+
+echo "<h1> New Limit Test Case 2</h1>";
+
+$db->select("*")->from('test')->limit('2');
+
+$res = $db->executeFetchAll();
+
+echo "<pre>" . print_r($res, 1) . "</pre>";
+
+echo "<h1> New Limit Test Case 3 with OFFSET</h1>";
+
+$db->select("*")->from('test')->limit('1')->offset('2');
+
+$res = $db->executeFetchAll();
+
+echo "<pre>" . print_r($res, 1) . "</pre>";
 
 
 //
@@ -245,7 +272,6 @@ $res = $db->execute();
 $res = $db->executeFetchAll($selectSQL);
 
 echo "<pre>" . print_r($res, 1) . "</pre>";
-
 
 
 //

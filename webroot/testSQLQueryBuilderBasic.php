@@ -127,8 +127,6 @@ $db->orderBy("id ASC");
 
 echo "<pre>" . $db->getSQL() . "</pre>";
 
-
-
 //
 // Select and join from database
 //
