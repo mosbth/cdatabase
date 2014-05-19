@@ -149,6 +149,32 @@ echo "<pre>" . $db->getSQL() . "</pre>";
 
 
 //
+// Select, limit and offset
+//
+$db->select("*")
+   ->from('test')
+   ->limit('1');
+
+echo "<pre>" . $db->getSQL() . "</pre>";
+
+
+$db->select("*")
+   ->from('test')
+   ->limit('2');
+
+echo "<pre>" . $db->getSQL() . "</pre>";
+
+
+$db->select("*")
+   ->from('test')
+   ->limit('1')
+   ->offset('2');
+
+echo "<pre>" . $db->getSQL() . "</pre>";
+
+
+
+//
 // Delete a single row
 //
 $db->delete(
