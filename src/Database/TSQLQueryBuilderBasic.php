@@ -466,7 +466,7 @@ trait TSQLQueryBuilderBasic
      */
     public function limit($condition)
     {
-        $this->limit = "LIMIT \n\t(" . intval($condition) . ")";
+        $this->limit = "LIMIT \n\t" . intval($condition);
 
         return $this;
     }
@@ -480,7 +480,7 @@ trait TSQLQueryBuilderBasic
      */
     public function offset($condition)
     {
-        $this->offset = "OFFSET \n\t(" . intval($condition) . ")";
+        $this->offset = "OFFSET \n\t" . intval($condition);
 
         return $this;
     }
