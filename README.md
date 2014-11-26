@@ -28,7 +28,8 @@ History
 
 v0.1.x (latest)
 
-* Adding debug mode to hide or display conneciton details when connect() fails.
+* Double check that lastInsertId works.
+* Adding debug mode to hide or display connection details when connect() fails.
 * Added error erporting to testprograms in webroot.
 * Added utility `webroot/check_driver.php` to see if and what PDO drivers are loaded.
 * Merged issue #1 from Emil to include limit and offset and made it work with MySQL.

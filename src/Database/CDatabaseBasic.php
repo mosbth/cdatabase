@@ -427,7 +427,7 @@ class CDatabaseBasic
      */
     public function lastInsertId()
     {
-        return $this->db->lastInsertid();
+        return $this->db->lastInsertId();
     }
 
 

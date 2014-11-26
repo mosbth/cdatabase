@@ -53,6 +53,7 @@ $db->insert(
 $db->execute();
 
 $id1 = $db->lastInsertId();
+echo "<p>Last inserted id: $id1</p>";
 
 
 //
@@ -67,6 +68,7 @@ $db->insert(
 $db->execute();
 
 $id2 = $db->lastInsertId();
+echo "<p>Last inserted id: $id2</p>";
 
 
 //
@@ -80,6 +82,7 @@ $db->insert(
 $db->execute($rows[0]);
 
 $id3 = $db->lastInsertId();
+echo "<p>Last inserted id: $id3</p>";
 
 
 
