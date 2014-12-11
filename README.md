@@ -29,7 +29,7 @@ History
 v0.1.x (latest)
 
 * Added support for group by clause.
-* Reformated config-files with comments.
+* Reformatted config-files with comments.
 * Double check that lastInsertId works.
 * Adding debug mode to hide or display connection details when connect() fails.
 * Added error reporting to testprograms in webroot.
