@@ -19,6 +19,7 @@ trait TSQLQueryBuilderBasic
     private $columns;   // Columns to select
     private $from;      // From part
     private $where;     // Where part
+    private $groupby;   // Group by part
     private $orderby;   // Order by part
     private $limit;     // Limit by part
     private $offset;    // Offset by part
@@ -54,6 +55,7 @@ trait TSQLQueryBuilderBasic
             . $this->from . "\n"
             . ($this->join    ? $this->join           : null)
             . ($this->where   ? $this->where . "\n"   : null)
+            . ($this->groupby ? $this->groupby . "\n" : null)
             . ($this->orderby ? $this->orderby . "\n" : null)
             . ($this->limit   ? $this->limit . "\n"   : null)
             . ($this->offset  ? $this->offset . "\n"  : null)
@@ -183,7 +185,7 @@ trait TSQLQueryBuilderBasic
     /**
      * Create a proper column value arrays from incoming $columns and $values.
      *
-     * @param array  $columns 
+     * @param array  $columns
      * @param array  $values
      *
      * @return list($columns, $values)
@@ -194,11 +196,11 @@ trait TSQLQueryBuilderBasic
         if (is_null($values)) {
 
             if ($this->isAssoc($columns)) {
-    
+
                 // Incoming is associative array, split it up in two
                 $values = array_values($columns);
                 $columns = array_keys($columns);
-    
+
             } else {
 
                 // Create an array of '?' to match number of columns
@@ -353,6 +355,7 @@ trait TSQLQueryBuilderBasic
         $this->from     = null;
         $this->join     = null;
         $this->where    = null;
+        $this->groupby  = null;
         $this->orderby  = null;
         $this->limit    = null;
         $this->offset   = null;
@@ -444,20 +447,38 @@ trait TSQLQueryBuilderBasic
 
 
     /**
-     * Build the order by part.
-     *
-     * @param string $condition for building the where part of the query.
-     *
-     * @return $this
-     */
+    * Build the group by part.
+    *
+    * @param string $condition for building the group by part of the query.
+    *
+    * @return $this
+    */
+    public function groupBy($condition)
+    {
+      $this->groupby = "GROUP BY " . $condition;
+
+      return $this;
+    }
+
+
+
+    /**
+    * Build the order by part.
+    *
+    * @param string $condition for building the where part of the query.
+    *
+    * @return $this
+    */
     public function orderBy($condition)
     {
-        $this->orderby = "ORDER BY " . $condition;
+      $this->orderby = "ORDER BY " . $condition;
 
-        return $this;
+      return $this;
     }
-    
-     /**
+
+
+
+    /**
      * Build the LIMIT by part.
      *
      * @param string $condition for building the LIMIT part of the query.
@@ -470,6 +491,8 @@ trait TSQLQueryBuilderBasic
 
         return $this;
     }
+
+
 
     /**
      * Build the OFFSET by part.

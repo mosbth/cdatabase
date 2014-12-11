@@ -28,10 +28,11 @@ History
 
 v0.1.x (latest)
 
+* Added support for group by clause.
 * Reformated config-files with comments.
 * Double check that lastInsertId works.
 * Adding debug mode to hide or display connection details when connect() fails.
-* Added error erporting to testprograms in webroot.
+* Added error reporting to testprograms in webroot.
 * Added utility `webroot/check_driver.php` to see if and what PDO drivers are loaded.
 * Merged issue #1 from Emil to include limit and offset and made it work with MySQL.
 
