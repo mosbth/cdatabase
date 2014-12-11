@@ -15,7 +15,7 @@ By Mikael Roos, me@mikaelroos.se.
 
 
 
-License 
+License
 ------------------
 
 This software is free software and carries a MIT license.
@@ -28,6 +28,7 @@ History
 
 v0.1.x (latest)
 
+* Reformated config-files with comments.
 * Double check that lastInsertId works.
 * Adding debug mode to hide or display connection details when connect() fails.
 * Added error erporting to testprograms in webroot.
@@ -48,5 +49,3 @@ v0.1.0 (2014-04-17)
  .  
 ..:  Copyright (c) 2013 - 2014 Mikael Roos, me@mikaelroos.se
 ```
-
-
