@@ -37,7 +37,7 @@ $rows = [
     [22, "Mumintrollet"],
     [44, "Mumindalen"],
     [66, "Lilla My"],
-];
+  ];
 
 //
 // Insert a single row into table using key => value
@@ -75,8 +75,8 @@ echo "<p>Last inserted id: $id2</p>";
 // Insert a single row into table using single array
 //
 $db->insert(
-    'test',
-    ['age', 'text']
+'test',
+['age', 'text']
 );
 
 $db->execute($rows[0]);
@@ -84,6 +84,7 @@ $db->execute($rows[0]);
 $id3 = $db->lastInsertId();
 echo "<p>Last inserted id: $id3</p>";
 
+$db->execute($rows[0]);
 
 
 //
@@ -179,7 +180,21 @@ echo "<pre>" . print_r($res, 1) . "</pre>";
 // Select from database
 //
 $db->select("SUM(age)")
-    ->from('test')
+->from('test')
+;
+
+$res = $db->executeFetchAll();
+
+echo "<pre>" . print_r($res, 1) . "</pre>";
+
+
+
+//
+// Select and group by
+//
+$db->select("text, SUM(age) AS age")
+->from('test')
+->groupBy('text')
 ;
 
 $res = $db->executeFetchAll();
