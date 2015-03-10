@@ -412,7 +412,7 @@ trait TSQLQueryBuilderBasic
             throw new \Exception("$type is not supported");
         }
 
-        $this->join .= $type .= " JOIN " . $this->prefix . $table
+        $this->join .= $type . " JOIN " . $this->prefix . $table
             . "\n\tON " . $condition . "\n";
 
         return $this;
