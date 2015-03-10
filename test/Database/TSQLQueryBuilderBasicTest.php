@@ -124,4 +124,39 @@ EOD;
         $this->assertEquals($res, $exp, "The SQL for right join does not match.");
     }
 
+    public function testDelete()
+    {
+        $this->mock->delete('test');
+
+        $res = $this->mock->getSQL();
+
+        $exp = "DELETE FROM mos_test;\n";
+
+        $this->assertEquals($res, $exp, "The SQL for delete does not match.");
+    }
+
+
+    public function testDeleteWhere()
+    {
+        $this->mock->delete('test', "id = 2");
+
+        $res = $this->mock->getSQL();
+
+        $exp = "DELETE FROM mos_test WHERE id = 2;\n";
+
+        $this->assertEquals($res, $exp, "The SQL for delete does not match.");
+    }
+
+    public function testDropTable()
+    {
+        $this->mock->dropTable('test');
+
+        $res = $this->mock->getSQL();
+
+        $exp = "DROP TABLE mos_test;\n";
+
+        $this->assertEquals($res, $exp, "The SQL for drop table does not match.");
+    }
+
+
 }
