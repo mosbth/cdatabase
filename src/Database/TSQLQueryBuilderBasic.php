@@ -401,48 +401,24 @@ trait TSQLQueryBuilderBasic
      *
      * @param string $table     name of table.
      * @param string $condition to join.
+     * @param string $type of join type default is inner
      *
      * @return $this
      */
-    public function join($table, $condition)
+    public function join($table, $condition, $type = 'INNER')
     {
-        $this->join .= "INNER JOIN " . $this->prefix . $table
+        $type =  strtoupper($type);
+        if ($type !== 'INNER' || $type !== 'RIGHT' || $type !== 'LEFT') {
+            throw new \Exception("$type is not supported");
+        }
+
+        $this->join .= $type .= " JOIN " . $this->prefix . $table
             . "\n\tON " . $condition . "\n";
 
         return $this;
     }
 
-    /**
-     * Build the right join part.
-     *
-     * @param string $table     name of table.
-     * @param string $condition to join.
-     *
-     * @return $this
-     */
-    public function rightJoin($table, $condition)
-    {
-        $this->join .= "RIGHT JOIN " . $this->prefix . $table
-            . "\n\tON " . $condition . "\n";
 
-        return $this;
-    }
-
-    /**
-     * Build the left join part.
-     *
-     * @param string $table     name of table.
-     * @param string $condition to join.
-     *
-     * @return $this
-     */
-    public function join($table, $condition)
-    {
-        $this->join .= "LEFT JOIN " . $this->prefix . $table
-            . "\n\tON " . $condition . "\n";
-
-        return $this;
-    }
 
     /**
      * Build the where part.
