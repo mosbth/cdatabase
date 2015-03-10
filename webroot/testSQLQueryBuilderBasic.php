@@ -154,6 +154,19 @@ $db->select("t1.*, t2.*, t3.*")
 echo "<pre>" . $db->getSQL() . "</pre>";
 
 
+$db->select("t1.*, t2.id AS id2, t3.id AS id3")
+    ->from('test AS t1')
+    ->rightJoin('test AS t2', 't1.id = t2.id')
+    ->rightJoin('test AS t3', 't1.id = t3.id');
+
+echo "<pre>" . $db->getSQL() . "</pre>";
+
+$db->select("t1.*, t2.id AS id2, t3.id AS id3")
+    ->from('test AS t1')
+    ->leftJoin('test AS t2', 't1.id = t2.id')
+    ->leftJoin('test AS t3', 't1.id = t3.id');
+
+echo "<pre>" . $db->getSQL() . "</pre>";
 
 //
 // Select, limit and offset
