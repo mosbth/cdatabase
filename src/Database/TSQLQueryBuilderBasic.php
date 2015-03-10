@@ -412,7 +412,37 @@ trait TSQLQueryBuilderBasic
         return $this;
     }
 
+    /**
+     * Build the right join part.
+     *
+     * @param string $table     name of table.
+     * @param string $condition to join.
+     *
+     * @return $this
+     */
+    public function rightJoin($table, $condition)
+    {
+        $this->join .= "RIGHT JOIN " . $this->prefix . $table
+            . "\n\tON " . $condition . "\n";
 
+        return $this;
+    }
+
+    /**
+     * Build the left join part.
+     *
+     * @param string $table     name of table.
+     * @param string $condition to join.
+     *
+     * @return $this
+     */
+    public function join($table, $condition)
+    {
+        $this->join .= "LEFT JOIN " . $this->prefix . $table
+            . "\n\tON " . $condition . "\n";
+
+        return $this;
+    }
 
     /**
      * Build the where part.
