@@ -326,7 +326,7 @@ EOD;
         $this->mock->update(
             'test',
             ['age', 'text', 'text1'],
-            [22, "Mumintrollet", "?"],
+            [22, "Mumintrollet", "asd"],
             "id = ?"
         );
 
@@ -337,8 +337,8 @@ UPDATE mos_test
 SET
 \tage = 22,
 \ttext = 'Mumintrollet',
-\ttext1 = '?'
-WHERE id = 2
+\ttext1 = 'asd'
+WHERE id = ?
 ;
 
 EOD;
