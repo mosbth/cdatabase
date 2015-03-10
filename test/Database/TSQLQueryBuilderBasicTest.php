@@ -53,7 +53,6 @@ EOD;
         $this->assertEquals($res, $exp, "The SQL for create table does not match.");
     }
 
-
     public function testRightJoin()
     {
         $this->mock->select("t1.*, t2.id AS id2, t3.id AS id3")
@@ -61,10 +60,6 @@ EOD;
                     ->rightJoin('test AS t2', 't1.id = t2.id')
                     ->rightJoin('test AS t3', 't1.id = t3.id');
 
-        /*INSERT INTO mos_test
-        (id, text, text2)
-        VALUES
-        (2, 'Mumintrollet', 'Mumindalen');*/
         $res = $this->mock->getSQL();
 
         $exp = <<<EOD
@@ -77,7 +72,7 @@ RIGHT JOIN mos_test AS t3
 \tON t1.id = t3.id
 ;
 EOD;
-        $this->assertEquals($res, $exp, "The SQL for right join does not match.");
+        $this->assertEquals($res, $exp);
     }
 
     public function testLeftJoin()
@@ -99,8 +94,9 @@ LEFT JOIN mos_test AS t3
 \tON t1.id = t3.id
 ;
 EOD;
-        $this->assertEquals($res, $exp, "The SQL for right join does not match.");
+        $this->assertEquals($res, $exp);
     }
+
 
     public function testInnerJoin()
     {
@@ -121,7 +117,7 @@ INNER JOIN mos_test AS t3
 \tON t1.id = t3.id
 ;
 EOD;
-        $this->assertEquals($res, $exp, "The SQL for right join does not match.");
+        $this->assertEquals($res, $exp);
     }
 
     public function testDelete()
@@ -132,10 +128,51 @@ EOD;
 
         $exp = "DELETE FROM mos_test;\n";
 
-        $this->assertEquals($res, $exp, "The SQL for delete does not match.");
+        $this->assertEquals($res, $exp);
     }
 
+    public function testSelectLimitOffset()
+    {
+        $this->mock->select("*")
+                   ->from('test')
+                   ->limit('1')
+                   ->offset('2');
 
+        $res = $this->mock->getSQL();
+
+        $exp = <<<EOD
+SELECT
+\t*
+FROM mos_test
+LIMIT \n\t1
+OFFSET \n\t2
+;
+EOD;
+
+
+        $this->assertEquals($res, $exp);
+    }
+
+    public function testWhereAndWhere()
+    {
+        $this->mock->select("*")
+                   ->from('test')
+                   ->where('id = 1')
+                   ->andWhere('name = mumin');
+
+        $res = $this->mock->getSQL();
+
+        $exp = <<<EOD
+SELECT
+\t*
+FROM mos_test
+WHERE \n\t(id = 1)
+\tAND (name = mumin)
+;
+EOD;
+
+        $this->assertEquals($res, $exp);
+    }
     public function testDeleteWhere()
     {
         $this->mock->delete('test', "id = 2");
@@ -144,7 +181,7 @@ EOD;
 
         $exp = "DELETE FROM mos_test WHERE id = 2;\n";
 
-        $this->assertEquals($res, $exp, "The SQL for delete does not match.");
+        $this->assertEquals($res, $exp);
     }
 
     public function testDropTable()
@@ -155,8 +192,170 @@ EOD;
 
         $exp = "DROP TABLE mos_test;\n";
 
-        $this->assertEquals($res, $exp, "The SQL for drop table does not match.");
+        $this->assertEquals($res, $exp);
+    }
+
+    public function testdropTableIfExists()
+    {
+        $this->mock->dropTableIfExists('test');
+
+        $res = $this->mock->getSQL();
+
+        $exp = "DROP TABLE IF EXISTS mos_test;\n";
+
+        $this->assertEquals($res, $exp);
     }
 
 
+    public function testGroupBy()
+    {
+        $this->mock->select()
+                    ->from('test')
+                    ->groupBy('test');
+
+
+        $res = $this->mock->getSQL();
+        $exp = <<<EOD
+SELECT
+\t*
+FROM mos_test
+GROUP BY test
+;
+EOD;
+        $this->assertEquals($res, $exp);
+    }
+
+    public function testOrderBy()
+    {
+        $this->mock->select()
+                    ->from('test')
+                    ->orderBy('test');
+
+
+        $res = $this->mock->getSQL();
+        $exp = <<<EOD
+SELECT
+\t*
+FROM mos_test
+ORDER BY test
+;
+EOD;
+        $this->assertEquals($res, $exp);
+    }
+
+
+    public function testInsertSingleRow()
+    {
+        $this->mock->insert(
+            'test',
+            [
+                'id' => 2,
+                'text' => "Mumintrollet",
+                'text2' => "Mumindalen",
+            ]
+        );
+
+        $res = $this->mock->getSQL();
+
+        $exp = <<<EOD
+INSERT INTO mos_test
+\t(id, text, text2)
+\tVALUES
+\t(2, 'Mumintrollet', 'Mumindalen');
+
+EOD;
+        $this->assertEquals($res, $exp);
+    }
+
+    public function testInsertSingleRowTowArray()
+    {
+        $this->mock->insert(
+            'test',
+            ['id', 'text', 'text2'],
+            [2, "Mumintrollet", "Mumindalen"]
+        );
+
+        $res = $this->mock->getSQL();
+
+        $exp = <<<EOD
+INSERT INTO mos_test
+\t(id, text, text2)
+\tVALUES
+\t(2, 'Mumintrollet', 'Mumindalen');
+
+EOD;
+        $this->assertEquals($res, $exp);
+    }
+
+    public function testInsertSingleRowNoValues()
+    {
+        $this->mock->insert(
+            'test',
+            ['id', 'text', 'text2']
+        );
+
+        $res = $this->mock->getSQL();
+
+        $exp = <<<EOD
+INSERT INTO mos_test
+\t(id, text, text2)
+\tVALUES
+\t(?, ?, ?);
+
+EOD;
+        $this->assertEquals($res, $exp);
+    }
+
+
+    public function testInsertWrongData()
+    {
+        try {
+            $this->mock->insert(
+                'test',
+                ['id', 'text', 'text2'],
+                [2, "Mumintrollet"]
+            );
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+        }
+    }
+
+
+    public function testUpdateTwoArrays()
+    {
+        $this->mock->update(
+            'test',
+            ['age', 'text', 'text1'],
+            [22, "Mumintrollet", "?"],
+            "id = ?"
+        );
+
+        $res = $this->mock->getSQL();
+
+        $exp = <<<EOD
+UPDATE mos_test
+SET
+\tage = 22,
+\ttext = 'Mumintrollet',
+\ttext1 = '?'
+WHERE id = 2
+;
+
+EOD;
+        $this->assertEquals($res, $exp);
+    }
+
+    public function testUpdateWrongData()
+    {
+        try {
+            $this->mock->update(
+                'test',
+                ['age', 'text', 'text1'],
+                [22, "Mumindalen"],
+                "id = 2"
+            );
+        } catch (\Exception $e) {
+            $this->assertTrue(true);
+        }
+    }
 }
