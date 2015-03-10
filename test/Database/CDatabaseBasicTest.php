@@ -18,6 +18,12 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
         'verbose' => true,
     ];
 
+    private $sqliteOptions = [
+        'dsn' => "sqlite:memory::",
+        "verbose" => false
+    ];
+
+
     private $rows = [
         [22, "Mumintrollet"],
         [44, "Mumindalen"],
@@ -29,7 +35,7 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         $this->db = new \Mos\Database\CDatabaseBasic();
-        $this->db->setOptions($this->mysqlOptions);
+        $this->db->setOptions($this->sqliteOptions);
         $this->db->connect();
         $this->selectSQL = $this->db->select("id, age, text")
                                     ->from('test')->getSQL();
