@@ -29,8 +29,6 @@ class CDatabaseBasic
      * Constructor creating a PDO object connecting to a choosen database.
      *
      * @param array $options containing details for connecting to the database.
-     *
-     * @return void
      */
     public function __construct($options = [])
     {
@@ -291,17 +289,15 @@ class CDatabaseBasic
      * 
      * @param string  $query      the SQL query with ?.
      * @param array   $params     array which contains the argument to replace ?.
-     * @param boolean $debug      defaults to false, set to true to print out the sql query before executing it.
      *
      * @return array with resultset.
      */
     public function executeFetchAll(
         $query = null,
-        $params = [],
-        $debug = false
+        $params = []
     ) {
 
-        $this->execute($query, $params, $debug);
+        $this->execute($query, $params);
         return $this->fetchAll();
     }
 
