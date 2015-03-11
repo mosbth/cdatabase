@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Markers
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">CDatabase API Documentaion</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Mos.html">\Mos</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">27</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">172</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>
+                                                                        <li><a href="#src/Database/TSQLQueryBuilderBasic.php"><i class="icon-file"></i> src/Database/TSQLQueryBuilderBasic.php</a></li>
+                                                                                                <li><a href="#webroot/testMySQL.php"><i class="icon-file"></i> webroot/testMySQL.php</a></li>
+                                                                                                <li><a href="#src/Database/CDatabaseBasic.php"><i class="icon-file"></i> src/Database/CDatabaseBasic.php</a></li>
+                                                                                                <li><a href="#webroot/config_mysql.php"><i class="icon-file"></i> webroot/config_mysql.php</a></li>
+                                                                                                <li><a href="#webroot/testSQLite.php"><i class="icon-file"></i> webroot/testSQLite.php</a></li>
+                                                                                                <li><a href="#webroot/testDatabaseQueries.php"><i class="icon-file"></i> webroot/testDatabaseQueries.php</a></li>
+                                                                                                <li><a href="#webroot/testSQLQueryBuilderBasic.php"><i class="icon-file"></i> webroot/testSQLQueryBuilderBasic.php</a></li>
+                                                                                                <li><a href="#webroot/config_sqlite.php"><i class="icon-file"></i> webroot/config_sqlite.php</a></li>
+                                                                                                                            </ul>
+        </div>
+
+        <div class="span10 offset2">
+
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-map-marker"></i></a><span class="divider">\</span></li>
+                <li>Markers</li>
+            </ul>
+
+            
+            <div id="marker-accordion">
+                                                            <div class="package-contents">
+                            <a name="src/Database/TSQLQueryBuilderBasic.php" id="src/Database/TSQLQueryBuilderBasic.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                src/Database/TSQLQueryBuilderBasic.php
+                                <small style="float: right;padding-right: 10px;">15</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>14</td>
+                                            <td>SQL dialect for a certain database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>15</td>
+                                            <td>The query built</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>16</td>
+                                            <td>Prefix to attach to all table names</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>18</td>
+                                            <td>Columns to select</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>From part</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>Where part</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>Group by part</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>Order by part</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>Limit by part</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>Offset by part</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>118</td>
+                                            <td>stackoverflow.com/questions/173400/php-arrays-a-good-way-to-check-if-an-array-is-associative-or-sequential/4254008#4254008</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>213</td>
+                                            <td>If $values is null, then use $columns to build it up</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>218</td>
+                                            <td>Incoming is associative array, split it up in two</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>224</td>
+                                            <td>Create an array of &#039;?&#039; to match number of columns</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>299</td>
+                                            <td>If $values is string, then move that to $where</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="webroot/testMySQL.php" id="webroot/testMySQL.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                webroot/testMySQL.php
+                                <small style="float: right;padding-right: 10px;">15</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>3</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>Set the error reporting.</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>5</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>Report all type of errors</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>7</td>
+                                            <td>Display all errors</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>8</td>
+                                            <td>Do not buffer outputs, write directly</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td>Get required files</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>13</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>Read config file</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>27</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>Carry out som tests</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td></td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="src/Database/CDatabaseBasic.php" id="src/Database/CDatabaseBasic.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                src/Database/CDatabaseBasic.php
+                                <small style="float: right;padding-right: 10px;">8</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td>Options used when creating the PDO object</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>The PDO object</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td>The latest statement used to execute a query</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>Count all queries made</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>Save all queries for debugging purpose</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>Save all parameters for debugging purpose</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>103</td>
+                                            <td>For debug purpose, shows all connection details</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>106</td>
+                                            <td>Hide connection details.</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="webroot/config_mysql.php" id="webroot/config_mysql.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                webroot/config_mysql.php
+                                <small style="float: right;padding-right: 10px;">4</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>Set up details on how to connect to the database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>Display details on what happens</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>14</td>
+                                            <td>Throw a more verbose exception when failing to connect</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>15</td>
+                                            <td>&#039;debug_connect&#039; =&gt; &#039;true&#039;,</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="webroot/testSQLite.php" id="webroot/testSQLite.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                webroot/testSQLite.php
+                                <small style="float: right;padding-right: 10px;">20</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>3</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>Set the error reporting.</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>5</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>Report all type of errors</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>7</td>
+                                            <td>Display all errors</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>10</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>Get required files</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>Precondition</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>22</td>
+                                            <td>if (!is_writable(__DIR__)) {</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>23</td>
+                                            <td>die(&quot;This directory must be writable to create the SQLite database file.&quot;);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>24</td>
+                                            <td>}</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>27</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td>Read config file</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>34</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>35</td>
+                                            <td>Carry out som tests</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>36</td>
+                                            <td></td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="webroot/testDatabaseQueries.php" id="webroot/testDatabaseQueries.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                webroot/testDatabaseQueries.php
+                                <small style="float: right;padding-right: 10px;">67</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>2</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>3</td>
+                                            <td>Carry out som tests, db must exist</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>7</td>
+                                            <td>$db-&gt;connect(&#039;debug&#039;);</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>10</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>Drop a table if it exists</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>17</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>18</td>
+                                            <td>Create a table</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>33</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>34</td>
+                                            <td>Rows to test with</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>35</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>42</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>43</td>
+                                            <td>Insert a single row into table using key =&gt; value</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>44</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>59</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>60</td>
+                                            <td>Insert a single row into table using two arrays</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>61</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>74</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>75</td>
+                                            <td>Insert a single row into table using single array</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>76</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>90</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>91</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>92</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>107</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>108</td>
+                                            <td>Update a single row using key =&gt; value</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>109</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>123</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>124</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>125</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>134</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>135</td>
+                                            <td>Update a single row using one arrays</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>136</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>147</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>148</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>149</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>158</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>159</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>160</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>179</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>180</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>181</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>192</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>193</td>
+                                            <td>Select and group by</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>194</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>206</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>207</td>
+                                            <td>Select, limit and offset</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>208</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>238</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>239</td>
+                                            <td>Select and join from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>240</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>282</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>283</td>
+                                            <td>Delete a single row</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>284</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>294</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>295</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>296</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>303</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>304</td>
+                                            <td>Delete all row</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>305</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>312</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>313</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>314</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>320</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>321</td>
+                                            <td>Drop a table</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>322</td>
+                                            <td></td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="webroot/testSQLQueryBuilderBasic.php" id="webroot/testSQLQueryBuilderBasic.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                webroot/testSQLQueryBuilderBasic.php
+                                <small style="float: right;padding-right: 10px;">39</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>10</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>Create a table</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>29</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>30</td>
+                                            <td>Insert a single row into table using key =&gt; value</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>31</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>45</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>46</td>
+                                            <td>Insert a single row into table using two arrays</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>47</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>58</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>59</td>
+                                            <td>Insert a single row into table using one array (rest will be sent as parameters)</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>60</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>70</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>71</td>
+                                            <td>Update a single row using key =&gt; value</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>72</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>87</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>88</td>
+                                            <td>Update a single row using two arrays</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>89</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>101</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>102</td>
+                                            <td>Update a single row into table using one array (rest will be sent as parameters)</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>103</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>114</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>115</td>
+                                            <td>Select from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>116</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>137</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>138</td>
+                                            <td>Select and join from database</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>139</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>171</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>172</td>
+                                            <td>Select, limit and offset</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>173</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>197</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>198</td>
+                                            <td>Delete a single row</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>199</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>209</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>210</td>
+                                            <td>Delete all row</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>211</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>220</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>221</td>
+                                            <td>Drop a table</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>222</td>
+                                            <td></td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
+                            <a name="webroot/config_sqlite.php" id="webroot/config_sqlite.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                webroot/config_sqlite.php
+                                <small style="float: right;padding-right: 10px;">4</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>Its best to add an absolute path to the dsn</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>7</td>
+                                            <td>Display details on what happens</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>10</td>
+                                            <td>Throw a more verbose exception when failing to connect</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>&#039;debug_connect&#039; =&gt; &#039;true&#039;,</td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                    </div>
+        </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Mos.html">\Mos</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on March 11th, 2015 at 20:42.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
