@@ -2,7 +2,7 @@ imports:
     - php
 
 filter:
-    excluded_paths: [vendor/*, test/*, docs/*]
+    paths: [src/*]
 
 tools:
     external_code_coverage:
