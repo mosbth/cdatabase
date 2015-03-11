@@ -184,7 +184,7 @@ class CDatabaseBasic
     /**
      * Save query-history in session, useful as a flashmemory when redirecting to another page.
      * 
-     * @param string $debug enables to save some extra debug information.
+     * @param string $extra enables to save some extra debug information.
      *
      * @return void
      */
@@ -365,7 +365,6 @@ class CDatabaseBasic
      *
      * @param string  $query  the SQL query with ?.
      * @param array   $params array which contains the argument to replace ?.
-     * @param boolean $debug  defaults to false, set to true to print out the sql query before executing it.
      *
      * @return boolean returns TRUE on success or FALSE on failure. 
      */
@@ -374,7 +373,7 @@ class CDatabaseBasic
         $params = []
     ) {
 
-        if (!$query) {
+        if (is_null($query)) {
             $query = $this->getSQL();
         } else if (is_array($query)) {
             $params = $query;
