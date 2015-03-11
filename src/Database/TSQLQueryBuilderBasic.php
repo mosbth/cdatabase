@@ -17,6 +17,7 @@ trait TSQLQueryBuilderBasic
 
     private $columns;   // Columns to select
     private $from;      // From part
+    private $join;      // Join part
     private $where;     // Where part
     private $groupby;   // Group by part
     private $orderby;   // Order by part
