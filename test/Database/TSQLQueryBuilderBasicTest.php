@@ -267,7 +267,7 @@ EOD;
         $this->assertEquals($res, $exp);
     }
 
-    public function testInsertSingleRowTowArray()
+    public function testInsertSingleRowTwoArray()
     {
         $this->mock->insert(
             'test',
