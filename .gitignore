@@ -1,6 +1,7 @@
 # Logs and databases
 *.sqlite
 *.log
+webroot/.htsqlite.db
 
 
 # OS generated files
@@ -23,3 +24,4 @@ vendor/.git
 
 coverage.clover
 coverage/
+memory::
