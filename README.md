@@ -27,6 +27,8 @@ History
 
 v0.1.x (latest)
 
+* Added phpdoc
+* Merged #4
 * Added unittesting and made it work on Travis.
 * Added support for group by clause.
 * Reformatted config-files with comments.
