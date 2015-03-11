@@ -8,6 +8,11 @@ namespace Mos\Database;
  */
 trait TSQLQueryBuilderBasic
 {
+    private $types = [
+        'INNER',
+        'RIGHT',
+        'LEFT'
+    ];
 
     /**
      * Properties
@@ -65,6 +70,19 @@ trait TSQLQueryBuilderBasic
     }
 
 
+
+    private function createJoin($table, $condition, $type)
+    {
+        $type =  strtoupper($type);
+        if (! in_array($type, $this->types)) {
+            throw new \Exception("$type is not supported");
+        }
+
+        $this->join .= $type . " JOIN " . $this->prefix . $table
+            . "\n\tON " . $condition . "\n";
+
+        return $this;
+    }
 
     /**
      * Set database type to consider when generating SQL.
@@ -406,10 +424,38 @@ trait TSQLQueryBuilderBasic
      */
     public function join($table, $condition)
     {
-        $this->join .= "INNER JOIN " . $this->prefix . $table
-            . "\n\tON " . $condition . "\n";
 
-        return $this;
+        return $this->createJoin($table, $condition, 'INNER');;
+    }
+
+
+
+    /**
+     * Build the right join part.
+     *
+     * @param string $table     name of table.
+     * @param string $condition to join.
+     *
+     * @return $this
+     */
+    public function rightJoin($table, $condition)
+    {
+        return $this->createJoin($table, $condition, 'RIGHT');
+    }
+
+
+
+    /**
+     * Build the left join part.
+     *
+     * @param string $table     name of table.
+     * @param string $condition to join.
+     *
+     * @return $this
+     */
+    public function leftJoin($table, $condition)
+    {
+        return $this->createJoin($table, $condition, 'LEFT');
     }
 
 

@@ -1,9 +1,9 @@
-# Logs and databases 
+# Logs and databases
 *.sqlite
 *.log
 
 
-# OS generated files 
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -18,3 +18,8 @@ Thumbs.db
 composer.json
 composer.lock
 vendor/.git
+
+# phpunit
+
+coverage.clover
+coverage/
