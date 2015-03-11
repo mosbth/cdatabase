@@ -1,7 +1,7 @@
 mos/cdatabase
 =========
 
-[![Latest Stable Version](https://poser.pugx.org/leaphly/cart-bundle/version.png)](https://packagist.org/packages/mos/database)
+[![Latest Stable Version](https://poser.pugx.org/leaphly/cart-bundle/version.png)](https://packagist.org/packages/mos/cdatabase)
 [![Build Status](https://travis-ci.org/mosbth/cdatabase.png?branch=master)](https://travis-ci.org/mosbth/cdatabase)
 [![Code Coverage](https://scrutinizer-ci.com/g/mosbth/cdatabase/badges/coverage.png?s=f999ab1961684a91050b095682f7ab7a13ccb534)](https://scrutinizer-ci.com/g/mosbth/cdatabase/)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mosbth/cdatabase/badges/quality-score.png?s=1c2fc1af0df7fb7ee1e4f379a81253583a750297)](https://scrutinizer-ci.com/g/mosbth/cdatabase/)
