@@ -8,12 +8,6 @@ namespace Mos\Database;
  */
 trait TSQLQueryBuilderBasic
 {
-    private $types = [
-        'INNER',
-        'RIGHT',
-        'LEFT'
-    ];
-
     /**
      * Properties
      */
@@ -71,18 +65,24 @@ trait TSQLQueryBuilderBasic
 
 
 
+    /**
+     * Create a inner or outer join.
+     *
+     * @param string $table     name of table.
+     * @param string $condition to join.
+     * @param string $type      what type of join to create.
+     *
+     * @return void
+     */
     private function createJoin($table, $condition, $type)
     {
-        $type =  strtoupper($type);
-        if (! in_array($type, $this->types)) {
-            throw new \Exception("$type is not supported");
-        }
-
         $this->join .= $type . " JOIN " . $this->prefix . $table
             . "\n\tON " . $condition . "\n";
 
         return $this;
     }
+
+
 
     /**
      * Set database type to consider when generating SQL.
@@ -113,7 +113,7 @@ trait TSQLQueryBuilderBasic
 
 
     /**
-     * Utilitie to check if array is associative array.
+     * Utility to check if array is associative array.
      *
      * http://stackoverflow.com/questions/173400/php-arrays-a-good-way-to-check-if-an-array-is-associative-or-sequential/4254008#4254008
      *
@@ -440,7 +440,7 @@ trait TSQLQueryBuilderBasic
      */
     public function rightJoin($table, $condition)
     {
-        return $this->createJoin($table, $condition, 'RIGHT');
+        return $this->createJoin($table, $condition, 'RIGHT OUTER');
     }
 
 
@@ -455,7 +455,7 @@ trait TSQLQueryBuilderBasic
      */
     public function leftJoin($table, $condition)
     {
-        return $this->createJoin($table, $condition, 'LEFT');
+        return $this->createJoin($table, $condition, 'LEFT OUTER');
     }
 
 

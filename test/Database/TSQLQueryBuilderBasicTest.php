@@ -66,9 +66,9 @@ EOD;
 SELECT
 \tt1.*, t2.id AS id2, t3.id AS id3
 FROM mos_test AS t1
-RIGHT JOIN mos_test AS t2
+RIGHT OUTER JOIN mos_test AS t2
 \tON t1.id = t2.id
-RIGHT JOIN mos_test AS t3
+RIGHT OUTER JOIN mos_test AS t3
 \tON t1.id = t3.id
 ;
 EOD;
@@ -88,9 +88,9 @@ EOD;
 SELECT
 \tt1.*, t2.id AS id2, t3.id AS id3
 FROM mos_test AS t1
-LEFT JOIN mos_test AS t2
+LEFT OUTER JOIN mos_test AS t2
 \tON t1.id = t2.id
-LEFT JOIN mos_test AS t3
+LEFT OUTER JOIN mos_test AS t3
 \tON t1.id = t3.id
 ;
 EOD;
