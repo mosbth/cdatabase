@@ -289,7 +289,7 @@ trait TSQLQueryBuilderBasic
     /**
      * Build an update-query.
      *
-     * @param string $name    the table name.
+     * @param string $table   the table name.
      * @param array  $columns to update or key=>value with columns and values.
      * @param array  $values  to update or empty if $columns has bot columns and values.
      * @param array  $where   limit which rows are updated.
@@ -343,8 +343,8 @@ trait TSQLQueryBuilderBasic
     /**
      * Build a delete-query.
      *
-     * @param string $name    the table name.
-     * @param array  $where   limit which rows are updated.
+     * @param string $table the table name.
+     * @param array  $where limit which rows are updated.
      *
      * @return void
      */
