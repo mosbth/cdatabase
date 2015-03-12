@@ -205,7 +205,7 @@ trait TSQLQueryBuilderBasic
      * Create a proper column value arrays from incoming $columns and $values.
      *
      * @param array       $columns
-     * @param array/null  $values
+     * @param array|null  $values
      *
      * @return array that can be parsed with list($columns, $values)
      */
@@ -255,7 +255,8 @@ trait TSQLQueryBuilderBasic
         $cols = null;
         $vals = null;
 
-        for ($i = 0; $i < count($columns); $i++) {
+        $max = count($columns);
+        for ($i = 0; $i < $max; $i++) {
             $cols .= $columns[$i] . ', ';
 
             $val = $values[$i];
@@ -311,8 +312,9 @@ trait TSQLQueryBuilderBasic
         }
 
         $cols = null;
-
-        for ($i = 0; $i < count($columns); $i++) {
+        $max = count($columns);
+        
+        for ($i = 0; $i < $max; $i++) {
             $cols .= "\t" . $columns[$i] . ' = ';
 
             $val = $values[$i];
