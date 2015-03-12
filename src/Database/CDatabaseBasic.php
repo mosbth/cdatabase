@@ -188,7 +188,7 @@ class CDatabaseBasic
      */
     public function saveHistory($extra = null)
     {
-        if ($extra) {
+        if (!is_null($extra)) {
             self::$queries[] = $extra;
             self::$params[] = null;
         }

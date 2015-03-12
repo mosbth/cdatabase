@@ -204,10 +204,10 @@ trait TSQLQueryBuilderBasic
     /**
      * Create a proper column value arrays from incoming $columns and $values.
      *
-     * @param array  $columns
-     * @param array  $values
+     * @param array       $columns
+     * @param array/null  $values
      *
-     * @return list($columns, $values)
+     * @return array that can be parsed with list($columns, $values)
      */
     public function mapColumnsWithValues($columns, $values)
     {
@@ -223,7 +223,8 @@ trait TSQLQueryBuilderBasic
             } else {
 
                 // Create an array of '?' to match number of columns
-                for ($i = 0; $i < count($columns); $i++) {
+                $max = count($columns);
+                for ($i = 0; $i < $max; $i++) {
                     $values[] = '?';
                 }
             }
@@ -237,9 +238,9 @@ trait TSQLQueryBuilderBasic
     /**
      * Build a insert-query.
      *
-     * @param string $name    the table name.
+     * @param string $table   the table name.
      * @param array  $columns to insert och key=>value with columns and values.
-     * @param array  $values  to insert or empty if $columns has bot columns and values.
+     * @param array  $values  to insert or empty if $columns has both columns and values.
      *
      * @return void
      */
@@ -247,7 +248,7 @@ trait TSQLQueryBuilderBasic
     {
         list($columns, $values) = $this->mapColumnsWithValues($columns, $values);
 
-        if (count($columns) != count($values)) {
+        if (count($columns) !== count($values)) {
             throw new \Exception("Columns does not match values, not equal items.");
         }
 
