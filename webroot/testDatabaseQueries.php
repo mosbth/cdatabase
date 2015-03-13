@@ -180,7 +180,7 @@ echo "<pre>" . print_r($res, 1) . "</pre>";
 // Select from database
 //
 $db->select("SUM(age)")
-->from('test')
+   ->from('test')
 ;
 
 $res = $db->executeFetchAll();
@@ -193,8 +193,8 @@ echo "<pre>" . print_r($res, 1) . "</pre>";
 // Select and group by
 //
 $db->select("text, SUM(age) AS age")
-->from('test')
-->groupBy('text')
+   ->from('test')
+   ->groupBy('text')
 ;
 
 $res = $db->executeFetchAll();
