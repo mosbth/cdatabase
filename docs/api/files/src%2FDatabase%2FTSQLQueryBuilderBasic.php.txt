@@ -17,6 +17,7 @@ trait TSQLQueryBuilderBasic
 
     private $columns;   // Columns to select
     private $from;      // From part
+    private $join;      // Join part
     private $where;     // Where part
     private $groupby;   // Group by part
     private $orderby;   // Order by part
@@ -35,9 +36,8 @@ trait TSQLQueryBuilderBasic
     {
         if ($this->sql) {
             return $this->sql;
-        } else {
-            return $this->build();
         }
+        return $this->build();
     }
 
 
@@ -203,10 +203,10 @@ trait TSQLQueryBuilderBasic
     /**
      * Create a proper column value arrays from incoming $columns and $values.
      *
-     * @param array  $columns
-     * @param array  $values
+     * @param array       $columns
+     * @param array|null  $values
      *
-     * @return list($columns, $values)
+     * @return array that can be parsed with list($columns, $values)
      */
     public function mapColumnsWithValues($columns, $values)
     {
@@ -222,7 +222,8 @@ trait TSQLQueryBuilderBasic
             } else {
 
                 // Create an array of '?' to match number of columns
-                for ($i = 0; $i < count($columns); $i++) {
+                $max = count($columns);
+                for ($i = 0; $i < $max; $i++) {
                     $values[] = '?';
                 }
             }
@@ -236,9 +237,9 @@ trait TSQLQueryBuilderBasic
     /**
      * Build a insert-query.
      *
-     * @param string $name    the table name.
+     * @param string $table   the table name.
      * @param array  $columns to insert och key=>value with columns and values.
-     * @param array  $values  to insert or empty if $columns has bot columns and values.
+     * @param array  $values  to insert or empty if $columns has both columns and values.
      *
      * @return void
      */
@@ -246,14 +247,15 @@ trait TSQLQueryBuilderBasic
     {
         list($columns, $values) = $this->mapColumnsWithValues($columns, $values);
 
-        if (count($columns) != count($values)) {
+        if (count($columns) !== count($values)) {
             throw new \Exception("Columns does not match values, not equal items.");
         }
 
         $cols = null;
         $vals = null;
 
-        for ($i = 0; $i < count($columns); $i++) {
+        $max = count($columns);
+        for ($i = 0; $i < $max; $i++) {
             $cols .= $columns[$i] . ', ';
 
             $val = $values[$i];
@@ -287,7 +289,7 @@ trait TSQLQueryBuilderBasic
     /**
      * Build an update-query.
      *
-     * @param string $name    the table name.
+     * @param string $table   the table name.
      * @param array  $columns to update or key=>value with columns and values.
      * @param array  $values  to update or empty if $columns has bot columns and values.
      * @param array  $where   limit which rows are updated.
@@ -309,8 +311,9 @@ trait TSQLQueryBuilderBasic
         }
 
         $cols = null;
-
-        for ($i = 0; $i < count($columns); $i++) {
+        $max = count($columns);
+        
+        for ($i = 0; $i < $max; $i++) {
             $cols .= "\t" . $columns[$i] . ' = ';
 
             $val = $values[$i];
@@ -341,8 +344,8 @@ trait TSQLQueryBuilderBasic
     /**
      * Build a delete-query.
      *
-     * @param string $name    the table name.
-     * @param array  $where   limit which rows are updated.
+     * @param string $table the table name.
+     * @param array  $where limit which rows are updated.
      *
      * @return void
      */
@@ -425,7 +428,7 @@ trait TSQLQueryBuilderBasic
     public function join($table, $condition)
     {
 
-        return $this->createJoin($table, $condition, 'INNER');;
+        return $this->createJoin($table, $condition, 'INNER');
     }
 
 
@@ -501,9 +504,9 @@ trait TSQLQueryBuilderBasic
     */
     public function groupBy($condition)
     {
-      $this->groupby = "GROUP BY " . $condition;
+        $this->groupby = "GROUP BY " . $condition;
 
-      return $this;
+        return $this;
     }
 
 
@@ -517,9 +520,9 @@ trait TSQLQueryBuilderBasic
     */
     public function orderBy($condition)
     {
-      $this->orderby = "ORDER BY " . $condition;
+        $this->orderby = "ORDER BY " . $condition;
 
-      return $this;
+        return $this;
     }
 
 

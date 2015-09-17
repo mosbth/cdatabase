@@ -263,9 +263,14 @@ $db->select("t1.*, t2.id AS id2, t3.id AS id3")
     ->rightJoin('test AS t2', 't1.id = t2.id')
     ->rightJoin('test AS t3', 't1.id = t3.id');
 
-$res = $db->executeFetchAll();
-
-echo "<pre>" . print_r($res, 1) . "</pre>";
+try {
+    $res = $db->executeFetchAll();
+    echo "<pre>" . print_r($res, 1) . "</pre>";
+} catch (Exception $e) {
+    echo "EXCEPTION: " . $e->getMessage();
+    echo "<br>READ MORE IN THE SQLITE MANUAL: https://www.sqlite.org/omitted.html";
+    echo "<br>NOT A PROBLEM. CONTINUING ANYWAY.";
+}
 
 
 $db->select("t1.*, t2.id AS id2, t3.id AS id3")

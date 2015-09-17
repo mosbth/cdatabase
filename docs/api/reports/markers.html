@@ -67,12 +67,12 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="../reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">27</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">25</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="../reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">172</span>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">211</span>
                                 </a>
                             </li>
                             <li>
@@ -103,6 +103,7 @@
                                                                                                 <li><a href="#webroot/testSQLite.php"><i class="icon-file"></i> webroot/testSQLite.php</a></li>
                                                                                                 <li><a href="#webroot/testDatabaseQueries.php"><i class="icon-file"></i> webroot/testDatabaseQueries.php</a></li>
                                                                                                 <li><a href="#webroot/testSQLQueryBuilderBasic.php"><i class="icon-file"></i> webroot/testSQLQueryBuilderBasic.php</a></li>
+                                                                                                <li><a href="#webroot/test/testUserPasswordMD5.php"><i class="icon-file"></i> webroot/test/testUserPasswordMD5.php</a></li>
                                                                                                 <li><a href="#webroot/config_sqlite.php"><i class="icon-file"></i> webroot/config_sqlite.php</a></li>
                                                                                                                             </ul>
         </div>
@@ -121,7 +122,7 @@
                             <h3>
                             <i class="icon-file"></i>
                                 src/Database/TSQLQueryBuilderBasic.php
-                                <small style="float: right;padding-right: 10px;">15</small>
+                                <small style="float: right;padding-right: 10px;">16</small>
                             </h3>
                             <div>
                                 <table class="table markers table-bordered">
@@ -158,26 +159,31 @@
                                                                             <tr>
                                             <td></td>
                                             <td>20</td>
-                                            <td>Where part</td>
+                                            <td>Join part</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
                                             <td>21</td>
-                                            <td>Group by part</td>
+                                            <td>Where part</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
                                             <td>22</td>
-                                            <td>Order by part</td>
+                                            <td>Group by part</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
                                             <td>23</td>
-                                            <td>Limit by part</td>
+                                            <td>Order by part</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
                                             <td>24</td>
+                                            <td>Limit by part</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>25</td>
                                             <td>Offset by part</td>
                                         </tr>
                                                                             <tr>
@@ -202,7 +208,7 @@
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>299</td>
+                                            <td>301</td>
                                             <td>If $values is string, then move that to $where</td>
                                         </tr>
                                                                     </table>
@@ -213,7 +219,7 @@
                             <h3>
                             <i class="icon-file"></i>
                                 webroot/testMySQL.php
-                                <small style="float: right;padding-right: 10px;">15</small>
+                                <small style="float: right;padding-right: 10px;">14</small>
                             </h3>
                             <div>
                                 <table class="table markers table-bordered">
@@ -245,56 +251,51 @@
                                                                             <tr>
                                             <td></td>
                                             <td>7</td>
-                                            <td>Display all errors</td>
-                                        </tr>
-                                                                            <tr>
-                                            <td></td>
-                                            <td>8</td>
                                             <td>Do not buffer outputs, write directly</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>11</td>
+                                            <td>10</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>12</td>
+                                            <td>11</td>
                                             <td>Get required files</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>13</td>
+                                            <td>12</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
                                             <td>20</td>
-                                            <td></td>
-                                        </tr>
-                                                                            <tr>
-                                            <td></td>
-                                            <td>21</td>
                                             <td>Read config file</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>22</td>
+                                            <td>21</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>26</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
                                             <td>27</td>
-                                            <td></td>
-                                        </tr>
-                                                                            <tr>
-                                            <td></td>
-                                            <td>28</td>
                                             <td>Carry out som tests</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>29</td>
+                                            <td>28</td>
                                             <td></td>
                                         </tr>
                                                                     </table>
@@ -346,12 +347,12 @@
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>103</td>
+                                            <td>101</td>
                                             <td>For debug purpose, shows all connection details</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>106</td>
+                                            <td>104</td>
                                             <td>Hide connection details.</td>
                                         </tr>
                                                                     </table>
@@ -516,7 +517,7 @@
                             <h3>
                             <i class="icon-file"></i>
                                 webroot/testDatabaseQueries.php
-                                <small style="float: right;padding-right: 10px;">67</small>
+                                <small style="float: right;padding-right: 10px;">68</small>
                             </h3>
                             <div>
                                 <table class="table markers table-bordered">
@@ -787,77 +788,82 @@
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>282</td>
+                                            <td>271</td>
+                                            <td>www.sqlite.org/omitted.html&quot;;</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>287</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>283</td>
+                                            <td>288</td>
                                             <td>Delete a single row</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>284</td>
+                                            <td>289</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>294</td>
+                                            <td>299</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>295</td>
+                                            <td>300</td>
                                             <td>Select from database</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>296</td>
+                                            <td>301</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>303</td>
+                                            <td>308</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>304</td>
+                                            <td>309</td>
                                             <td>Delete all row</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>305</td>
+                                            <td>310</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>312</td>
+                                            <td>317</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>313</td>
+                                            <td>318</td>
                                             <td>Select from database</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>314</td>
+                                            <td>319</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>320</td>
+                                            <td>325</td>
                                             <td></td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>321</td>
+                                            <td>326</td>
                                             <td>Drop a table</td>
                                         </tr>
                                                                             <tr>
                                             <td></td>
-                                            <td>322</td>
+                                            <td>327</td>
                                             <td></td>
                                         </tr>
                                                                     </table>
@@ -1076,6 +1082,213 @@
                             </div>
                         </div>
                                                                                 <div class="package-contents">
+                            <a name="webroot/test/testUserPasswordMD5.php" id="webroot/test/testUserPasswordMD5.php"></a>
+                            <h3>
+                            <i class="icon-file"></i>
+                                webroot/test/testUserPasswordMD5.php
+                                <small style="float: right;padding-right: 10px;">38</small>
+                            </h3>
+                            <div>
+                                <table class="table markers table-bordered">
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Line</th>
+                                        <th>Description</th>
+                                    </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>3</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>4</td>
+                                            <td>Set the error reporting.</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>5</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>6</td>
+                                            <td>Report all type of errors</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>7</td>
+                                            <td>Do not buffer outputs, write directly</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>10</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>11</td>
+                                            <td>Get required files</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>12</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>19</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>20</td>
+                                            <td>Read config file</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>21</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>26</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>27</td>
+                                            <td>Carry out som tests, db must exist</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>28</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>35</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>36</td>
+                                            <td>Drop a table if it exists</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>37</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>43</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>44</td>
+                                            <td>Create a table</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>45</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>58</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>59</td>
+                                            <td>Add some users to test with</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>60</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>72</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>73</td>
+                                            <td>Add some users, two steps since must use salt as created before.</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>74</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>89</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>90</td>
+                                            <td>Check whats in the db</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>91</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>101</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>102</td>
+                                            <td>Check password for each user</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>103</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>114</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>115</td>
+                                            <td>Check password for each user</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>116</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>128</td>
+                                            <td></td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>129</td>
+                                            <td>Check (wrong) password for user</td>
+                                        </tr>
+                                                                            <tr>
+                                            <td></td>
+                                            <td>130</td>
+                                            <td></td>
+                                        </tr>
+                                                                    </table>
+                            </div>
+                        </div>
+                                                                                <div class="package-contents">
                             <a name="webroot/config_sqlite.php" id="webroot/config_sqlite.php"></a>
                             <h3>
                             <i class="icon-file"></i>
@@ -1153,7 +1366,7 @@
                 <section class="span10 offset1">
                     <hr />
                     Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
-                    on March 11th, 2015 at 20:42.
+                    on September 17th, 2015 at 14:57.
                 </section>
             </section>
         </section>

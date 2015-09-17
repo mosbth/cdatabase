@@ -29,8 +29,6 @@ class CDatabaseBasic
      * Constructor creating a PDO object connecting to a choosen database.
      *
      * @param array $options containing details for connecting to the database.
-     *
-     * @return void
      */
     public function __construct($options = [])
     {
@@ -184,13 +182,13 @@ class CDatabaseBasic
     /**
      * Save query-history in session, useful as a flashmemory when redirecting to another page.
      * 
-     * @param string $debug enables to save some extra debug information.
+     * @param string $extra enables to save some extra debug information.
      *
      * @return void
      */
     public function saveHistory($extra = null)
     {
-        if ($extra) {
+        if (!is_null($extra)) {
             self::$queries[] = $extra;
             self::$params[] = null;
         }
@@ -291,17 +289,15 @@ class CDatabaseBasic
      * 
      * @param string  $query      the SQL query with ?.
      * @param array   $params     array which contains the argument to replace ?.
-     * @param boolean $debug      defaults to false, set to true to print out the sql query before executing it.
      *
      * @return array with resultset.
      */
     public function executeFetchAll(
         $query = null,
-        $params = [],
-        $debug = false
+        $params = []
     ) {
 
-        $this->execute($query, $params, $debug);
+        $this->execute($query, $params);
         return $this->fetchAll();
     }
 
@@ -365,16 +361,17 @@ class CDatabaseBasic
      *
      * @param string  $query  the SQL query with ?.
      * @param array   $params array which contains the argument to replace ?.
-     * @param boolean $debug  defaults to false, set to true to print out the sql query before executing it.
      *
-     * @return boolean returns TRUE on success or FALSE on failure. 
+     * @throws Exception when failing to prepare question.
+     *
+     * @return boolean returns TRUE on success or FALSE on failure.
      */
     public function execute(
         $query = null,
         $params = []
     ) {
 
-        if (!$query) {
+        if (is_null($query)) {
             $query = $this->getSQL();
         } else if (is_array($query)) {
             $params = $query;
@@ -402,19 +399,21 @@ class CDatabaseBasic
         $this->stmt = $this->db->prepare($query);
 
         if (!$this->stmt) {
-            echo "Error in preparing query: "
+            $msg = "Error in preparing query: "
                 . $this->db->errorCode()
                 . " "
                 . htmlentities(print_r($this->db->errorInfo(), 1));
+            throw new \Exception($msg);
         }
 
         $res = $this->stmt->execute($params);
 
         if (!$res) {
-            echo "Error in executing query: "
+            $msg = "Error in executing query: "
                 . $this->stmt->errorCode()
                 . " "
                 . htmlentities(print_r($this->stmt->errorInfo(), 1));
+            throw new \Exception($msg);
         }
 
         return $res;

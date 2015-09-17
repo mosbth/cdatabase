@@ -36,9 +36,8 @@ trait TSQLQueryBuilderBasic
     {
         if ($this->sql) {
             return $this->sql;
-        } else {
-            return $this->build();
         }
+        return $this->build();
     }
 
 
@@ -429,7 +428,7 @@ trait TSQLQueryBuilderBasic
     public function join($table, $condition)
     {
 
-        return $this->createJoin($table, $condition, 'INNER');;
+        return $this->createJoin($table, $condition, 'INNER');
     }
 
 
@@ -505,9 +504,9 @@ trait TSQLQueryBuilderBasic
     */
     public function groupBy($condition)
     {
-      $this->groupby = "GROUP BY " . $condition;
+        $this->groupby = "GROUP BY " . $condition;
 
-      return $this;
+        return $this;
     }
 
 
@@ -521,9 +520,9 @@ trait TSQLQueryBuilderBasic
     */
     public function orderBy($condition)
     {
-      $this->orderby = "ORDER BY " . $condition;
+        $this->orderby = "ORDER BY " . $condition;
 
-      return $this;
+        return $this;
     }
 
 

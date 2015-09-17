@@ -26,6 +26,7 @@ History
 
 v0.1.x (latest)
 
+* Added try catch for code example where right outer join not supported in SQLite.
 * Added phpdoc
 * Merged #4
 * Added unittesting and made it work on Travis.

@@ -362,7 +362,9 @@ class CDatabaseBasic
      * @param string  $query  the SQL query with ?.
      * @param array   $params array which contains the argument to replace ?.
      *
-     * @return boolean returns TRUE on success or FALSE on failure. 
+     * @throws Exception when failing to prepare question.
+     *
+     * @return boolean returns TRUE on success or FALSE on failure.
      */
     public function execute(
         $query = null,
@@ -397,19 +399,21 @@ class CDatabaseBasic
         $this->stmt = $this->db->prepare($query);
 
         if (!$this->stmt) {
-            echo "Error in preparing query: "
+            $msg = "Error in preparing query: "
                 . $this->db->errorCode()
                 . " "
                 . htmlentities(print_r($this->db->errorInfo(), 1));
+            throw new \Exception($msg);
         }
 
         $res = $this->stmt->execute($params);
 
         if (!$res) {
-            echo "Error in executing query: "
+            $msg = "Error in executing query: "
                 . $this->stmt->errorCode()
                 . " "
                 . htmlentities(print_r($this->stmt->errorInfo(), 1));
+            throw new \Exception($msg);
         }
 
         return $res;
