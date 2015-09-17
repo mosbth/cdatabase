@@ -24,7 +24,7 @@ History
 -----------------------------------
 
 
-v0.1.x (latest)
+v0.1.1 (2015-09-17)
 
 * Added try catch for code example where right outer join not supported in SQLite.
 * Added phpdoc
