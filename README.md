@@ -24,6 +24,11 @@ History
 -----------------------------------
 
 
+v0.1.1* (2016-02-03)
+
+* Allow binding params without type restrictions, used in "LIMIT ?, ?".
+
+
 v0.1.1 (2015-09-17)
 
 * Added try catch for code example where right outer join not supported in SQLite.
@@ -50,5 +55,5 @@ v0.1.0 (2014-04-17)
 
 ```
  .  
-..:  Copyright (c) 2013 - 2014 Mikael Roos, me@mikaelroos.se
+..:  Copyright (c) 2013 - 2016 Mikael Roos, me@mikaelroos.se
 ```
