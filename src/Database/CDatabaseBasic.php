@@ -93,8 +93,10 @@ class CDatabaseBasic
                     $this->options['password'],
                     $this->options['driver_options']
                 );
+
                 $this->db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, $this->options['fetch_mode']);
-            
+                $this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
+
             } catch(\Exception $e) {
 
                 if ($debug || $this->options['debug_connect']) {

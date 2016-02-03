@@ -11,17 +11,20 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
     private $mysqlOptions = [
         // Set up details on how to connect to the database
         'dsn'     => "mysql:host=localhost;dbname=test;",
-        'username'        => "root",
-        'password'        => "",
+        'username'        => "test",
+        'password'        => "test",
         'driver_options'  => [\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8'"],
-        'table_prefix'    => "test_",
+        'table_prefix'    => "",
         'verbose' => true,
     ];
+
+
 
     private $sqliteOptions = [
         'dsn' => "sqlite:memory::",
         "verbose" => false
     ];
+
 
 
     private $rows = [
@@ -30,16 +33,23 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
         [66, "Lilla My"],
     ];
 
+
+
     private $db;
+
+
 
     protected function setUp()
     {
         $this->db = new \Mos\Database\CDatabaseBasic();
         $this->db->setOptions($this->sqliteOptions);
+        //$this->db->setOptions($this->mysqlOptions);
         $this->db->connect();
         $this->selectSQL = $this->db->select("id, age, text")
                                     ->from('test')->getSQL();
     }
+
+
 
     public function testCreateObject()
     {
@@ -48,10 +58,14 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
         $this->isInstanceOf('\Mos\Database\CDatabaseBasic');
     }
 
+
+
     public function testConnect()
     {
         $this->db->connect();
     }
+
+
 
     public function testConnectGetException()
     {
@@ -63,6 +77,8 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
         }
 
     }
+
+
 
     public function testCreateTable()
     {
@@ -78,6 +94,8 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
         $this->db->execute();
     }
 
+
+
     public function testInsertSingleRow()
     {
         $this->db->insert(
@@ -91,6 +109,8 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
         $this->db->execute();
     }
 
+
+
     public function testInsertAsArray()
     {
         $this->db->insert(
@@ -101,6 +121,8 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
 
         $this->db->execute();
     }
+
+
 
     public function testUpdateRow()
     {
@@ -115,6 +137,23 @@ class CDatabaseBasicTest extends \PHPUnit_Framework_TestCase
         $id2 = $this->db->lastInsertId();
         $this->db->execute(array_merge($this->rows[1], [$id2]));
     }
+
+
+    /**
+     * Testcase
+     */
+    public function testLimit()
+    {
+        $sql = "select * from test limit ?, ?";
+        $param = [0, 2];
+
+        $res = $this->db->executeFetchAll($sql, $param);
+        //$res = $this->db->executeFetchAll($sql);
+        //print_r($this->db->dump());
+        //var_dump($res);
+    }
+
+
 
     public function testDropTable()
     {
