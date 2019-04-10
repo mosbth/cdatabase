@@ -287,7 +287,7 @@ class CDatabaseBasic
 
 
     /**
-     * Execute a select-query with arguments and return the resultset.
+     * Execute a select-query with arguments and return all resultset.
      * 
      * @param string  $query      the SQL query with ?.
      * @param array   $params     array which contains the argument to replace ?.
@@ -301,6 +301,25 @@ class CDatabaseBasic
 
         $this->execute($query, $params);
         return $this->fetchAll();
+    }
+
+
+
+    /**
+     * Execute a select-query with arguments and return one resultset.
+     *
+     * @param string  $query      the SQL query with ?.
+     * @param array   $params     array which contains the argument to replace ?.
+     *
+     * @return array with resultset.
+     */
+    public function executeFetchOne(
+        $query = null,
+        $params = []
+    ) {
+
+        $this->execute($query, $params);
+        return $this->fetchOne();
     }
 
 
